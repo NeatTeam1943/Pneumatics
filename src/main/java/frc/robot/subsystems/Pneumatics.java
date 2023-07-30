@@ -14,16 +14,12 @@ public class Pneumatics extends SubsystemBase {
   Compressor m_compressor;
   Solenoid m_solenoid;
 
-  boolean pressureSwitch;
-
   public Pneumatics() {
     m_compressor = new Compressor(CylinderConstants.kCompressorPort, PneumaticsModuleType.CTREPCM);
     m_solenoid = new Solenoid(PneumaticsModuleType.CTREPCM, CylinderConstants.kSolenoidChannle);
 
     m_compressor.disable();
     m_compressor.enableDigital();
-
-    pressureSwitch = m_compressor.getPressureSwitchValue();
   }
 
   public void toggleSolenoid(){
@@ -32,6 +28,5 @@ public class Pneumatics extends SubsystemBase {
 
   @Override
   public void periodic() {
-    // This method will be called once per scheduler run
   }
 }
